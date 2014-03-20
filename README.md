@@ -1,5 +1,7 @@
 #HipHop
 
+![](http://gethiphop.net/images/screenshot.png)
+
 ## Dependencies
 
 You will need nodejs and grunt:
