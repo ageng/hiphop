@@ -1,0 +1,12 @@
+{
+    "updateUrl": "http://gethiphop.net/update.json",
+    "downloadUrl": "http://gethiphop.net",
+    "windows": {
+        "version": "0.4.2",
+        "description": "- First public beta"
+    },
+    "mac": {
+        "version": "0.4.2",
+        "description": "- First public beta"
+    }
+}

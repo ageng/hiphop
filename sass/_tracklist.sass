@@ -1,0 +1,40 @@
+#tracklist-container
+    .tracklist-error
+        text-align: center
+        padding: 15px
+        font-size: 13px
+        color: rgba(white, .4)
+
+    .track-container
+        margin-bottom: 3px
+        padding: 5px
+        &:hover
+            cursor: pointer
+            background: rgba(white, .03)
+            border-radius: 3px
+        .cover
+            float: left
+            background-image: url(../images/cover_default_large.png)
+            background-size: 42px
+            width: 42px
+            height: 42px
+            border-radius: 2px
+            +text-shadow(rgba(black, .8) 0px 1px 1px)
+        .info
+            float: left
+            padding: 4px
+            margin-left: 3px
+            +text-shadow(rgba(black, .8) 0px 1px 1px)
+            .title
+                font-size: 14px
+                color: #ddd
+            .artist
+                font-size: 13px
+                margin-top: 5px
+                color: #999
+
+        &.playingXXX
+            background: #18b0ff
+            &:hover
+                cursor: default
+                background: #18b0ff
