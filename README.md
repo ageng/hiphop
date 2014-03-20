@@ -37,6 +37,8 @@ You can also build for all platforms with:
 
 ## Release
 
+_Note: should add some grunt automation here_
+
 1. Delete `/build/` folder
 
 2. Update `version` in `/package.json`
