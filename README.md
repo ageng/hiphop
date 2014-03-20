@@ -1,6 +1,10 @@
-#HipHop
+#HipHop [![Dependency Status](https://david-dm.org/hiphopapp/hiphop.svg?theme=shields.io)](https://david-dm.org/hiphopapp/hiphop)
 
 ![](http://gethiphop.net/images/screenshot.png)
+
+## Contribute
+
+Join us on IRC at `#hiphopapp` on freenode ([web access](http://webchat.freenode.net/?channels=hiphopapp)).
 
 ## Dependencies
 
