@@ -47,16 +47,14 @@ _Note: should add some grunt automation here_
 
 1. Update `version` in `/package.json`
 
-2. Update `AppVersion` in `/dist/windows/windows-installer.iss`
+2. `$ grunt build --platforms=mac` or just `$ grunt build` if you're on a Mac (the generated `HipHop.app` will be available in `/build/releases/HipHop/mac/`)
 
-3. `$ grunt build --platforms=mac` or just `$ grunt build` if you're on a Mac (the generated `HipHop.app` will be available in `/build/releases/HipHop/mac/`)
+3. Compress `/build/releases/HipHop/mac/HipHop.app` to `HipHop-x.x.x.zip`. You have your Mac release!
 
-4. Compress `/build/releases/HipHop/mac/HipHop.app` to `HipHop-x.x.x.zip`. You have your Mac release!
+4. Download latest Windows version of [rogerwang/node-webkit#downloads](https://github.com/rogerwang/node-webkit#downloads) and put all files in `/node-webkit/win/*`
 
-5. Download latest Windows version of [rogerwang/node-webkit#downloads](https://github.com/rogerwang/node-webkit#downloads) and put all files in `/node-webkit/win/*`
+5. Open and Build `/dist/windows/windows-installer.iss` in a Windows environment (requires [Inno Setup](http://www.jrsoftware.org/isdl.php#stable) installed), this will generate `/dist/windows/Install HipHop x.x.x.exe`. You have your Windows installer!
 
-6. Open and Build `/dist/windows/windows-installer.iss` in a Windows environment (requires [Inno Setup](http://www.jrsoftware.org/isdl.php#stable) installed), this will generate `/dist/windows/Install HipHop x.x.x.exe`. You have your Windows installer!
+6. Upload both files to `http://download.gethiphop.net/releases/x.x.x/[mac|win]/`
 
-7. Upload both files to `http://download.gethiphop.net/releases/x.x.x/[mac|win]/`
-
-8. Update `/misc/update.json` accordingly and upload to `http://gethiphop.net/update.json` (*ONLY* when both releases are available for download)
+7. Update `/misc/update.json` accordingly and upload to `http://gethiphop.net/update.json` (*ONLY* when both releases are available for download)
