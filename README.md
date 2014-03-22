@@ -45,20 +45,18 @@ You can also build for all platforms with:
 
 _Note: should add some grunt automation here_
 
-1. Delete `/build/` folder
+1. Update `version` in `/package.json`
 
-2. Update `version` in `/package.json`
+2. Update `AppVersion` in `/dist/windows/windows-installer.iss`
 
-3. Update `AppVersion` in `/dist/windows/windows-installer.iss`
+3. `$ grunt build --platforms=mac` or just `$ grunt build` if you're on a Mac (the generated `HipHop.app` will be available in `/build/releases/HipHop/mac/`)
 
-4. `$ grunt build --platforms=mac` or just `$ grunt build` if you're on a Mac (the generated `HipHop.app` will be available in `/build/releases/HipHop/mac/`)
+4. Compress `/build/releases/HipHop/mac/HipHop.app` to `HipHop-x.x.x.zip`. You have your Mac release!
 
-5. Compress `/build/releases/HipHop/mac/HipHop.app` to `HipHop-x.x.x.zip`. You have your Mac release!
+5. Download latest Windows version of [rogerwang/node-webkit#downloads](https://github.com/rogerwang/node-webkit#downloads) and put all files in `/node-webkit/win/*`
 
-6. Download latest Windows version of [rogerwang/node-webkit#downloads](https://github.com/rogerwang/node-webkit#downloads) and put all files in `/node-webkit/win/*`
+6. Open and Build `/dist/windows/windows-installer.iss` in a Windows environment (requires [Inno Setup](http://www.jrsoftware.org/isdl.php#stable) installed), this will generate `/dist/windows/Install HipHop x.x.x.exe`. You have your Windows installer!
 
-7. Open and Build `/dist/windows/windows-installer.iss` in a Windows environment (requires [Inno Setup](http://www.jrsoftware.org/isdl.php#stable) installed), this will generate `/dist/windows/Install HipHop x.x.x.exe`. You have your Windows installer!
+7. Upload both files to `http://download.gethiphop.net/releases/x.x.x/[mac|win]/`
 
-8. Upload both files to `http://download.gethiphop.net/releases/x.x.x/[mac|win]/`
-
-9. Update `/misc/update.json` accordingly and upload to `http://gethiphop.net/update.json` (*ONLY* when both releases are available for download)
+8. Update `/misc/update.json` accordingly and upload to `http://gethiphop.net/update.json` (*ONLY* when both releases are available for download)
