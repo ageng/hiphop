@@ -1,6 +1,13 @@
 module.exports = function(grunt) {
     var buildPlatforms = parseBuildPlatforms(grunt.option('platforms'));
 
+    var packageJson = grunt.file.readJSON('package.json');
+    _VERSION = packageJson.version
+
+    grunt.log.writeln('Building ' + packageJson.version);
+
+    ///////////////////////
+
     grunt.initConfig({
         clean: ['build/releases'],
         coffee: {
@@ -43,6 +50,18 @@ module.exports = function(grunt) {
                     stdout: true
                 },
                 command: './build/cache/mac/0.9.2/node-webkit.app/Contents/MacOS/node-webkit . --debug'
+            }
+        },
+        'regex-replace': {
+            windows_installer: {
+                src: ['dist/win/windows-installer.iss'],
+                actions: [
+                    {
+                        name: 'version',
+                        search: '#define AppVersion "([\.0-9]+)"',
+                        replace: '#define AppVersion "' + _VERSION + '"'
+                    }
+                ]
             }
         },
         nodewebkit: {
@@ -102,6 +121,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-regex-replace');
     grunt.loadNpmTasks('grunt-node-webkit-builder');
 
     grunt.registerTask('default', ['compass', 'coffee']);
@@ -109,7 +129,7 @@ module.exports = function(grunt) {
     grunt.registerTask('nodewkbuild', ['nodewebkit', 'copy']);
 
     grunt.registerTask('run', ['default', 'shell']);
-    grunt.registerTask('build', ['default', 'obfuscate', 'clean', 'nodewkbuild']);
+    grunt.registerTask('build', ['default', 'obfuscate', 'clean', 'regex-replace', 'nodewkbuild']);
 
 };
 
