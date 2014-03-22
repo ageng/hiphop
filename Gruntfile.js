@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     ///////////////////////
 
     grunt.initConfig({
-        clean: ['build/releases'],
+        clean: ['build/releases/**'],
         coffee: {
             compileBare: {
                 options: {
@@ -111,6 +111,18 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+        compress: {
+            main: {
+                options: {
+                    mode: 'zip',
+                    level: 9,
+                    archive: 'build/releases/HipHop/mac/HipHop-' + _VERSION + '.zip'
+                },
+                expand: true,
+                cwd: 'build/releases/HipHop/mac/',
+                src: '**'
+            }
         }
     });
     
@@ -123,13 +135,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-regex-replace');
     grunt.loadNpmTasks('grunt-node-webkit-builder');
+    grunt.loadNpmTasks('grunt-contrib-compress');
 
     grunt.registerTask('default', ['compass', 'coffee']);
     grunt.registerTask('obfuscate', ['uglify', 'cssmin']);
     grunt.registerTask('nodewkbuild', ['nodewebkit', 'copy']);
 
     grunt.registerTask('run', ['default', 'shell']);
-    grunt.registerTask('build', ['default', 'obfuscate', 'clean', 'regex-replace', 'nodewkbuild']);
+    grunt.registerTask('build', ['default', 'obfuscate', 'clean', 'regex-replace', 'nodewkbuild', 'compress']);
 
 };
 
