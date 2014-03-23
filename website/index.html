@@ -4,52 +4,31 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>HipHop - Free music streaming app</title>
+        <title>HipHop</title>
+        <meta property="og:url" content="http://gethiphop.net" />
+        <meta property="og:title" content="HipHop" />
+        <meta property="og:image" content="http://gethiphop.net/images/screenshot_mac.png" />
+        <meta property="og:description" content="HipHop is an application for Windows, Mac and Linux that lets you listen instantly to more than 26 million songs. It requires no sign up, displays no ads and is 100% safe." />
+        <meta property="og:site_name" content="HipHop" />
+        <meta property="og:ttl" content="3600" />
 
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+
         <link href="css/main.css" rel="stylesheet">
-
-
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     </head>
 
     <body>
 
-        <div class="container">
-            <div class="jumbotron">
-                <h1><img src="images/logo.png" width="362"></h1>
-                <h3>Free music streaming app</h3>
-                <br>
-                <div class="win">
-                    <a class="btn btn-lg btn-success" href="http://download.gethiphop.net/releases/0.4.2/win/Install%20HipHop%200.4.2.exe" role="button">Download</a>
-                    <br><h5>Version 0.4.2 for Windows</h5>
-                </div>
-                <div class="osx">
-                    <a class="btn btn-lg btn-success" href="http://download.gethiphop.net/releases/0.4.2/mac/HipHop-0.4.2.zip" role="button">Download</a>
-                    <br><h5>Version 0.4.2 for Mac</h5>
-                </div>
-                <div class="share_buttons">
+        <div id="header-container">
+            <div id="header">
+                <div id="logo"></div>
+                <div id="share_buttons">
                     <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fgethiphop.net%2F&amp;width=110&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=526403257427489" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px; padding-top: 1px" allowTransparency="true"></iframe>
 
                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://gethiphop.net" data-text="HipHop - Listen to any music for free" data-via="gethiphopapp" data-hashtags="music" data-dnt="true">Tweet</a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-                    <!-- Place this tag where you want the +1 button to render. -->
                     <div class="g-plusone" data-size="medium" data-href="http://gethiphop.net"></div>
-
-                    <!-- Place this tag after the last +1 button tag. -->
                     <script type="text/javascript">
                       (function() {
                         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
@@ -57,48 +36,52 @@
                         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                       })();
                     </script>
-
                 </div>
-                <img src="images/screenshot.png" width="940">
-            </div>
-
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>It's Free</h4>
-                    <p>Just install and listen whenever you want, you don't have to sign up for anything.</p>
-
-                    <h4>It's Safe</h4>
-                    <p>No torrent, no weird website, listen as much as you want.</p>
-                </div>
-
-                <div class="col-lg-6">
-                    <h4>No Ads</h4>
-                    <p>Listen to the largest music catalog without being interrupted.</p>
-
-                    <h4>It's fast</h4>
-                    <p>No download, find and play your favorite tracks instantly.</p>
-                </div>
-            </div>
-
-            <div class="footer">
-                <p>Follow us: <a href="http://twitter.com/gethiphopapp" target="_blank">twitter.com/gethiphopapp</a> ― or talk to us: gethiphopnet@gmail.com</a></p>
             </div>
         </div>
 
-        <a href="https://github.com/hiphopapp/hiphop"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+        <div id="big-container">
+            <div id="tagline-container">
+                <div id="tagline1">Listen instantly to 26 million songs.</div>
+                <div id="tagline2">100% Free. No Ads. No Sign up.</div>
+                <div id="download">
+                    <a href="#" class="button">
+                        <span>Download HipHop</span>
+                    </a>
+                    <div id="version_info"> </div>
+                </div>
+            </div>
+        <div id="screenshot"></div>
+
+        <div id="description">
+            <span style="color: black; font-weight: normal;">HipHop is an application for Windows, Mac and Linux that lets you listen instantly to more than 26 million songs. It requires no sign up, displays no ads and is 100% safe.</span>
+            <br><br>
+            We believe that listening to music should always be free and available to everyone, and that only owning it should bare a cost.
+            <br><br>
+            We also believe that a software both useful and open-source simply can't die.
+            <br>
+            Join us now and contribute at <a href="http://github.com/hiphopapp/hiphop" target="_blank">github.com/hiphopapp/hiphop</a>.
+            <br><br>
+            Don't forget to share the love, you may not need HipHop but some of your friends might.
+            <br><br>
+            -- The HipHop Team
+        </div>
+
 
 
 
     <script>
         jQuery(document).ready(function() {
-            $('.win, .osx').hide();
             if (navigator.platform.toUpperCase().indexOf('MAC') !== -1) {
-                $('.osx').show();
+                $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.2/mac/HipHop-0.4.2.zip');
+                $('#download #version_info').text('Version 0.4.2 for Mac');
             } else {
-                $('.win').show();
+                $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.2/win/Install%20HipHop%200.4.2.exe');
+                $('#download #version_info').text('Version 0.4.2 for Windows');
             }
         });
     </script>
+
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
