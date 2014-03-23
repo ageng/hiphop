@@ -67,6 +67,6 @@ $ ->
             else
                 $('#sidebar-container li.top').click()
         )
-    ), 100
+    ), 1
 
     $('#search-input').focus()

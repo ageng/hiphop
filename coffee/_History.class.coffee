@@ -1,9 +1,13 @@
+# Init preparation (should be improved later)
+db.transaction (tx) ->
+    tx.executeSql 'CREATE TABLE IF NOT EXISTS history (artist, title, cover_url_medium, cover_url_large, last_played)'
+
 class History
 
     @clear: (success) ->
         db.transaction (tx) ->
             tx.executeSql 'DROP TABLE history'
-            success?
+            success?()
 
     @addTrack: (artist, title, cover_url_medium, cover_url_large) ->
         unix_timestamp = Math.round((new Date()).getTime() / 1000)

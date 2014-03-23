@@ -1,12 +1,16 @@
 # Init preparation (should be improved later)
 db.transaction (tx) ->
     tx.executeSql 'CREATE TABLE IF NOT EXISTS playlists (name, created)'
-    tx.executeSql 'DELETE FROM playlists WHERE name = ?', ['Favorites']
-    tx.executeSql 'INSERT INTO playlists (name, created) VALUES (?, ?)', ['Favorites', 0]
 
 __playlists = []
 
 class Playlists
+
+    @clear = (success) ->
+        db.transaction (tx) ->
+            tx.executeSql 'DROP TABLE playlist_tracks'
+            tx.executeSql 'DROP TABLE playlists'
+            success?()
 
     @addTrack: (artist, title, cover_url_medium, cover_url_large, playlist) ->
         unix_timestamp = Math.round((new Date()).getTime() / 1000)
@@ -29,12 +33,6 @@ class Playlists
         db.transaction (tx) ->
             tx.executeSql 'DELETE FROM playlists WHERE name = ?', [name]
             tx.executeSql 'DELETE FROM playlist_tracks WHERE playlist = ?', [name]
-
-    @deleteAll = (success) ->
-        db.transaction (tx) ->
-            tx.executeSql 'DELETE FROM playlists'
-            tx.executeSql 'DELETE FROM playlist_tracks'
-            success?
 
     @getAll = (success) ->
         playlists = []

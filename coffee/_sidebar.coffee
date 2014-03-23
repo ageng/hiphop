@@ -7,6 +7,7 @@ populateSidebar = (playlists) ->
 
     $('#sidebar-container ul').append('<li class="history">History</li>')
     $('#sidebar-container ul').append('<li class="sep"><hr></li>')
+    
     for playlist in playlists
         $('#sidebar-container ul').append('<li class="playlist">' + playlist.name + '</li>')
     $('#sidebar-container ul').append('<li class="new">+ New playlist</li>')
