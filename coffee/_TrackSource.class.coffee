@@ -3,13 +3,11 @@ request = require('request')
 class TrackSource
 
     @search: (keywords, success) ->
-        $.ajax
-            url: 'http://itunes.apple.com/search?media=music&entity=song&limit=100&callback=cb&term=' + encodeURIComponent(keywords)
-            jsonpCallback: 'cb'
-            dataType: 'jsonp'
-            error: (e) ->
-                console.log e.message
-            success: (data) ->
+        request
+            url: 'http://itunes.apple.com/search?media=music&entity=song&limit=100&term=' + encodeURIComponent(keywords)
+            json: true
+        , (error, response, data) ->
+            if not error and response.statusCode is 200
                 tracks = []
                 tracks_hash = []
                 $.each data.results, (i, track) ->
@@ -25,9 +23,11 @@ class TrackSource
 
 
     @topTracks: (success) ->
-        request 'http://itunes.apple.com/rss/topsongs/limit=50/explicit=true/json', (error, response, body) ->
+        request
+            url: 'http://itunes.apple.com/rss/topsongs/limit=50/explicit=true/json'
+            json: true
+        , (error, response, data) ->
             if not error and response.statusCode is 200
-                data = JSON.parse(body)
                 tracks = []
                 tracks_hash = []
                 $.each data.feed.entry, (i, track) ->

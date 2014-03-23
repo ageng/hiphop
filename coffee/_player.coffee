@@ -1,3 +1,4 @@
+request = require('request')
 ytdl = require('ytdl')
 
 itag_priorities = [ # http://en.wikipedia.org/wiki/YouTube > Comparison of YouTube media encoding options
@@ -68,7 +69,10 @@ PlayTrack = (artist, title, cover_url_medium, cover_url_large) ->
     $('#player-container #info #track-info #title').html(title)
 
 
-    $.get 'http://gdata.youtube.com/feeds/api/videos?alt=json&max-results=1&q=' + encodeURIComponent(artist + ' - ' + title), (data) ->
+    request
+        url: 'http://gdata.youtube.com/feeds/api/videos?alt=json&max-results=1&q=' + encodeURIComponent(artist + ' - ' + title)
+        json: true
+    , (error, response, data) ->
         $('#player-container #info #video-info').html('► ' + data.feed.entry[0].title['$t'] + ' (' + data.feed.entry[0].author[0].name['$t'] + ')')
 
         ytdl.getInfo data.feed.entry[0].link[0].href, {downloadURL: true}, (err, info) ->

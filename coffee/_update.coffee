@@ -1,6 +1,11 @@
 request = require('request')
 
 request Settings.get('updateUrl'), (error, response, body) ->
+
+request
+    url: Settings.get('updateUrl')
+    json: true
+, (error, response, data) ->
     if not error and response.statusCode is 200
         data = JSON.parse(body)
         if data.updateUrl and data.downloadUrl
