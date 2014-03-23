@@ -68,27 +68,29 @@ PlayTrack = (artist, title, cover_url_medium, cover_url_large) ->
     $('#player-container #info #track-info #artist').html(artist)
     $('#player-container #info #track-info #title').html(title)
 
-
     request
         url: 'http://gdata.youtube.com/feeds/api/videos?alt=json&max-results=1&q=' + encodeURIComponent(artist + ' - ' + title)
         json: true
     , (error, response, data) ->
-        $('#player-container #info #video-info').html('► ' + data.feed.entry[0].title['$t'] + ' (' + data.feed.entry[0].author[0].name['$t'] + ')')
+        if not data.feed.entry # no results
+            PlayNext(__currentTrack.artist, __currentTrack.title)
+        else
+            $('#player-container #info #video-info').html('► ' + data.feed.entry[0].title['$t'] + ' (' + data.feed.entry[0].author[0].name['$t'] + ')')
 
-        ytdl.getInfo data.feed.entry[0].link[0].href, {downloadURL: true}, (err, info) ->
-            if err
-                console.log err
-            else
-                stream_urls = []
-                $.each info.formats, (i, format) ->
-                    stream_urls[format.itag] = format.url
+            ytdl.getInfo data.feed.entry[0].link[0].href, {downloadURL: true}, (err, info) ->
+                if err
+                    console.log err
+                else
+                    stream_urls = []
+                    $.each info.formats, (i, format) ->
+                        stream_urls[format.itag] = format.url
 
-                $.each itag_priorities, (i, itag) ->
-                    if stream_urls[itag]
-                        if __CurrentSelectedTrack == __LastSelectedTrack
-                            videojs('video_player').src(stream_urls[itag]).play()
-                            userTracking.event("Playback Info", "itag", itag).send()
-                        return false
+                    $.each itag_priorities, (i, itag) ->
+                        if stream_urls[itag]
+                            if __CurrentSelectedTrack == __LastSelectedTrack
+                                videojs('video_player').src(stream_urls[itag]).play()
+                                userTracking.event("Playback Info", "itag", itag).send()
+                            return false
 
 
 
