@@ -1,11 +1,11 @@
 {
     "name": "HipHop",
+    "version": "0.4.3",
     "repository" : {
         "type" : "git",
         "url" : "http://github.com/hiphopapp/hiphop.git"
     },
     "main": "index.html",
-    "version": "0.4.2",
     "window": {
         "title": "HipHop",
         "icon": "images/icon.png",

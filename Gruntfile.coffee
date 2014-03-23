@@ -40,10 +40,10 @@ module.exports = (grunt) ->
 
         'regex-replace':
             windows_installer:
-                src: [ 'dist/win/windows-installer.iss' ]
+                src: ['dist/win/windows-installer.iss']
                 actions:
                     name: 'version'
-                    search: '#define AppVersion "([.0-9]+)"'
+                    search: '#define AppVersion "[\.0-9]+"'
                     replace: '#define AppVersion "' + _VERSION + '"'
 
         nodewebkit:
