@@ -88,6 +88,21 @@ module.exports = (grunt) ->
                     dest: 'build/cache/linux64/<%= nodewebkit.options.version %>/libffmpegsumo.so'
                     flatten: true
                 ]
+        compress:
+            linux32:
+                options:
+                    mode: 'tgz'
+                    archive: 'build/releases/HipHop/linux32/HipHop-' + _VERSION + '.tgz'
+                expand: true
+                cwd: 'build/releases/HipHop/linux32/'
+                src: '**'
+            linux64:
+                options:
+                    mode: 'tgz'
+                    archive: 'build/releases/HipHop/linux64/HipHop-' + _VERSION + '.tgz'
+                expand: true
+                cwd: 'build/releases/HipHop/linux64/'
+                src: '**'
 
     
 
@@ -100,12 +115,13 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-shell'
     grunt.loadNpmTasks 'grunt-regex-replace'
     grunt.loadNpmTasks 'grunt-node-webkit-builder'
+    grunt.loadNpmTasks 'grunt-contrib-compress'
     
     grunt.registerTask 'default', ['compass', 'coffee']
     grunt.registerTask 'obfuscate', ['uglify', 'cssmin']
     grunt.registerTask 'nodewkbuild', ['nodewebkit', 'copy']
     grunt.registerTask 'run', ['default', 'shell:runnw']
-    grunt.registerTask 'build', ['default', 'obfuscate', 'clean', 'regex-replace', 'nodewkbuild', 'shell:create_dmg']
+    grunt.registerTask 'build', ['default', 'obfuscate', 'clean', 'regex-replace', 'nodewkbuild', 'shell:create_dmg', 'compress']
 
 parseBuildPlatforms = (argumentPlatform) ->
     
