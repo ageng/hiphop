@@ -37,6 +37,10 @@ module.exports = (grunt) ->
                 options:
                     stdout: true
                 command: './build/cache/mac/0.9.2/node-webkit.app/Contents/MacOS/node-webkit . --debug'
+            create_dmg:
+                options:
+                    stdout: true
+                command: './dist/mac/yoursway-create-dmg/create-dmg --volname "HipHop ' + _VERSION + '" --background ./dist/mac/background.png --window-size 480 540 --icon-size 128 --app-drop-link 240 370 --icon "HipHop" 240 110 ./build/releases/HipHop/mac/HipHop-' + _VERSION + '.dmg ./build/releases/HipHop/mac/'
 
         'regex-replace':
             windows_installer:
@@ -85,16 +89,6 @@ module.exports = (grunt) ->
                     flatten: true
                 ]
 
-        compress:
-            main:
-                options:
-                    mode: 'zip'
-                    level: 9
-                    archive: 'build/releases/HipHop/mac/HipHop-' + _VERSION + '.zip'
-                expand: true
-                cwd: 'build/releases/HipHop/mac/'
-                src: '**'
-
     
 
     grunt.loadNpmTasks 'grunt-contrib-clean'
@@ -106,13 +100,12 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-shell'
     grunt.loadNpmTasks 'grunt-regex-replace'
     grunt.loadNpmTasks 'grunt-node-webkit-builder'
-    grunt.loadNpmTasks 'grunt-contrib-compress'
     
-    grunt.registerTask 'default', [ 'compass', 'coffee' ]
-    grunt.registerTask 'obfuscate', [ 'uglify', 'cssmin' ]
-    grunt.registerTask 'nodewkbuild', [ 'nodewebkit', 'copy' ]
-    grunt.registerTask 'run', [ 'default', 'shell' ]
-    grunt.registerTask 'build', [ 'default', 'obfuscate', 'clean', 'regex-replace', 'nodewkbuild', 'compress' ]
+    grunt.registerTask 'default', ['compass', 'coffee']
+    grunt.registerTask 'obfuscate', ['uglify', 'cssmin']
+    grunt.registerTask 'nodewkbuild', ['nodewebkit', 'copy']
+    grunt.registerTask 'run', ['default', 'shell:runnw']
+    grunt.registerTask 'build', ['default', 'obfuscate', 'clean', 'regex-replace', 'nodewkbuild', 'shell:create_dmg']
 
 parseBuildPlatforms = (argumentPlatform) ->
     
