@@ -2,11 +2,11 @@
     "updateUrl": "http://gethiphop.net/update.json",
     "downloadUrl": "http://gethiphop.net",
     "windows": {
-        "version": "0.4.3",
-        "description": "- Fix empty homescreen\n- Bugfixes & performance improvements"
+        "version": "0.4.5",
+        "description": "- Fix songs not playing"
     },
     "mac": {
-        "version": "0.4.3",
-        "description": "- Fix empty homescreen\n- Bugfixes & performance improvements"
+        "version": "0.4.5",
+        "description": "- Fix songs not playing"
     }
 }

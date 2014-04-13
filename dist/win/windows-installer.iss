@@ -1,6 +1,6 @@
 ; Installer Variables
 #define AppName "HipHop"
-#define AppVersion "0.4.3"
+#define AppVersion "0.4.5"
 #define AppPublisher "HipHop Team"
 #define AppURL "http://gethiphop.net"
 #define AppExeName "run.bat"

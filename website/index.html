@@ -8,7 +8,7 @@
         <meta property="og:url" content="http://gethiphop.net" />
         <meta property="og:title" content="HipHop" />
         <meta property="og:image" content="http://gethiphop.net/images/screenshot_mac.png" />
-        <meta property="og:description" content="HipHop is an application for Windows, Mac and Linux that lets you listen instantly to more than 26 million songs. It requires no sign up, displays no ads and is 100% safe." />
+        <meta property="og:description" content="HipHop is an application for Windows, Mac and Linux that lets you listen instantly to more than 45 million songs. It requires no sign up, displays no ads and is 100% safe." />
         <meta property="og:site_name" content="HipHop" />
         <meta property="og:ttl" content="3600" />
 
@@ -42,7 +42,7 @@
 
         <div id="big-container">
             <div id="tagline-container">
-                <div id="tagline1">Listen instantly to 26 million songs.</div>
+                <div id="tagline1">Listen instantly to 45 million songs.</div>
                 <div id="tagline2">100% Free. No Ads. No Sign up.</div>
                 <div id="download">
                     <a href="#" class="button">
@@ -54,7 +54,7 @@
         <div id="screenshot"></div>
 
         <div id="description">
-            <span style="color: black; font-weight: normal;">HipHop is an application for Windows, Mac and Linux that lets you listen instantly to more than 26 million songs. It requires no sign up, displays no ads and is 100% safe.</span>
+            <span style="color: black; font-weight: normal;">HipHop is an application for Windows, Mac and Linux that lets you listen instantly to more than 45 million songs (way more than iTunes that has only 26 million). It requires no sign up, displays no ads and is 100% safe.</span>
             <br><br>
             We believe that listening to music should always be free and available to everyone, and that only owning it should bare a cost.
             <br><br>
@@ -80,18 +80,18 @@
 
 
             if (mac.test(userAgent)) {
-                $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.3/mac/HipHop-0.4.3.dmg');
-                $('#download #version_info').text('Version 0.4.3 for Mac');
+                $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.5/mac/HipHop-0.4.5.dmg');
+                $('#download #version_info').text('Version 0.4.5 for Mac');
             } else if (win.test(userAgent)) {
-                $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.3/win/Install%20HipHop%200.4.3.exe');
-                $('#download #version_info').text('Version 0.4.3 for Windows');
+                $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.5/win/Install%20HipHop%200.4.5.exe');
+                $('#download #version_info').text('Version 0.4.5 for Windows');
             } else if (lin.test(userAgent)) {
                 if (lin64.test(userAgent)) {
-                    $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.3/linux64/HipHop-0.4.3.tgz');
-                    $('#download #version_info').text('Version 0.4.3 for 64-bit Linux');
+                    $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.5/linux64/HipHop-0.4.5.tgz');
+                    $('#download #version_info').text('Version 0.4.5 for 64-bit Linux');
                 } else {
-                    $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.3/linux32/HipHop-0.4.3.tgz');
-                    $('#download #version_info').text('Version 0.4.3 for 32-bit Linux');
+                    $('#download a').attr('href', 'http://download.gethiphop.net/releases/0.4.5/linux32/HipHop-0.4.5.tgz');
+                    $('#download #version_info').text('Version 0.4.5 for 32-bit Linux');
                 }
             }
         });
