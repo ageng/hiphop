@@ -1,6 +1,6 @@
 Settings =
     get: (variable) ->
-        localStorage['settings_' + variable]
+        localStorage['setting_' + variable]
     set: (variable, newValue) ->
         localStorage.setItem 'settings_' + variable, newValue
 
